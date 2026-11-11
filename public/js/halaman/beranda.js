@@ -119,8 +119,9 @@ export default async function beranda({ pergi }) {
   // ---- Pembuka ----
   const kondisi = unggulan?.kondisi;
   const kartuFoto = unggulan && h('figure', { class: 'hero__foto' },
-    h('div', { class: 'bingkai' }, foto(unggulan.foto, { alt: `Ilustrasi ${kecil(unggulan.judul)}`, utama: true })),
-    h('div', { class: 'label-harga', 'data-fase': kondisi.bantuan ? 'malam' : null }, labelHarga(unggulan, kondisi, jadwal)),
+    h('div', { class: 'hero__papan' },
+      h('div', { class: 'bingkai' }, foto(unggulan.foto, { alt: `Ilustrasi ${kecil(unggulan.judul)}`, utama: true })),
+      h('div', { class: 'label-harga', 'data-fase': kondisi.bantuan ? 'malam' : null }, labelHarga(unggulan, kondisi, jadwal))),
     h('figcaption', { class: 'nota' }, `${unggulan.judul}, ${unggulan.kantin.nama}. ${kondisi.status === 'buka' ? `Tinggal ${unggulan.stokSisa} porsi, pukul ${jam(sekarang())}.` : `Ambil ${jam(unggulan.jendela.mulai)} sampai ${jam(unggulan.jendela.selesai)}.`}`));
 
   const pembuka = h('section', { class: 'hero', 'aria-labelledby': 'judul-hero' },

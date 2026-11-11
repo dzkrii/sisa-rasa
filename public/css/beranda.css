@@ -191,3 +191,9 @@
 .bantuan__nanti strong { font: 900 1.5rem/1 var(--f-tampil); font-stretch: 62%; word-spacing: 0.14em; }
 @media (min-width: 48rem) { .bantuan__nanti li { grid-template-columns: minmax(0, 1fr) 14rem 11rem; } .bantuan__nanti .angka { font-weight: 700; } }
 @media (min-width: 48rem) { .bantuan__nanti li { grid-template-columns: minmax(0, 1fr) 14rem 14rem; } }
+
+/* Label harga menempel di tepi bawah foto, bukan di tepi blok; keterangan selalu mulai di bawah label. */
+.hero__papan { position: relative; }
+.hero__foto .label-harga { position: absolute; left: 0.6rem; bottom: -1.6rem; right: auto; max-width: calc(100% - 1.2rem); }
+.hero__foto figcaption { margin-top: 2.2rem; }
+@media (min-width: 62rem) { .hero__foto .label-harga { left: -2.5rem; max-width: calc(100% + 1rem); } }
