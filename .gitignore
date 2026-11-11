@@ -21,3 +21,6 @@ Thumbs.db
 .idea/
 coverage/
 *.tmp
+
+# Klip rekaman video lomba (berkas besar)
+video/klip/
