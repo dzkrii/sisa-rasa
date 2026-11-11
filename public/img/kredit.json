@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "lontong-medan",
+    "lebar": 1280,
+    "tinggi": 676,
+    "judul": "Lontong Medan 1",
+    "pembuat": "Astari28",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Lontong_Medan_1.png"
+  },
+  {
+    "slug": "ayam-penyet",
+    "lebar": 1280,
+    "tinggi": 960,
+    "judul": "Nasi Ayam Penyet 2",
+    "pembuat": "Astari28",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Nasi_Ayam_Penyet_2.jpg"
+  },
+  {
+    "slug": "bika-ambon",
+    "lebar": 1280,
+    "tinggi": 850,
+    "judul": "Bika ambon pandan 2",
+    "pembuat": "Agus Damanik",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Bika_ambon_pandan_2.jpg"
+  },
+  {
+    "slug": "kue-talam",
+    "lebar": 1280,
+    "tinggi": 960,
+    "judul": "Kue Talam 3",
+    "pembuat": "S Kartika",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Kue_Talam_3.jpg"
+  },
+  {
+    "slug": "mie-goreng",
+    "lebar": 1280,
+    "tinggi": 855,
+    "judul": "Mie goreng",
+    "pembuat": "مانفی",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Mie_goreng.jpg"
+  },
+  {
+    "slug": "nasi-goreng",
+    "lebar": 1280,
+    "tinggi": 960,
+    "judul": "Nasi Goreng Telur Balado",
+    "pembuat": "Indonesiagood",
+    "lisensi": "CC BY 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Nasi_Goreng_Telur_Balado.jpg"
+  },
+  {
+    "slug": "pisang-goreng",
+    "lebar": 1280,
+    "tinggi": 960,
+    "judul": "Sepiring Pisang Goreng",
+    "pembuat": "Indonesiagood",
+    "lisensi": "CC BY 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Sepiring_Pisang_Goreng.jpg"
+  },
+  {
+    "slug": "bubur-pedas",
+    "lebar": 1280,
+    "tinggi": 960,
+    "judul": "Bubur pedas melayu",
+    "pembuat": "Bibazi",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Bubur_pedas_melayu.jpg"
+  },
+  {
+    "slug": "nasi-gurih",
+    "lebar": 1280,
+    "tinggi": 2274,
+    "judul": "Nasi Gurih Khas Medan",
+    "pembuat": "Lim Natee",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Nasi_Gurih_Khas_Medan.jpg"
+  },
+  {
+    "slug": "soto-medan",
+    "lebar": 1280,
+    "tinggi": 960,
+    "judul": "Soto Medan di Yogyakarta",
+    "pembuat": "Risanprasetyo/Febri Ady Prasetyo",
+    "lisensi": "CC BY-SA 4.0",
+    "lisensiUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sumber": "https://commons.wikimedia.org/wiki/File:Soto_Medan_di_Yogyakarta.jpg"
+  }
+]

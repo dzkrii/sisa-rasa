@@ -1,0 +1,133 @@
+/* ---------- Dampak (halaman baru) ---------- */
+.dmp { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(3rem, 8vw, 6rem); padding-top: 2rem; }
+.dmp-kepala, .dmp-bagian, .dmp-sdg__kepala, .dmp-sdg__pita, .dmp-panggung { padding-inline: max(var(--jarak), calc((100% - var(--lebar)) / 2)); }
+.dmp-kepala { display: grid; gap: 1.25rem; }
+.dmp-kepala h1 { font-size: clamp(2.8rem, 8vw, 6rem); max-width: 12ch; }
+.dmp-kepala__kalimat { margin: 0; max-width: 30ch; font: 500 clamp(1.4rem, 3.2vw, 2.25rem)/1.25 var(--f-isi); }
+.dmp-kepala__kalimat b { font-weight: 800; color: var(--merah-teks); }
+.dmp-kepala .nota { margin: 0; }
+.dmp-bagian h2 { margin-bottom: 1.25rem; font-size: clamp(2rem, 5vw, 3.25rem); }
+
+/* ---------- Scrollytelling toples ---------- */
+.dmp-lintasan { height: 380vh; position: relative; }
+.dmp-panggung { position: sticky; top: 3.5rem; height: calc(100dvh - 3.5rem); display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto auto; grid-template-areas: 'toples' 'bab' 'rel'; gap: 0.75rem; padding-block: 0.9rem; border-block: 2px solid var(--tinta); transition: background-color 0.6s var(--ease-keluar), color 0.6s var(--ease-keluar); }
+.dmp-toples { grid-area: toples; margin: 0; min-height: 0; display: grid; place-items: center; }
+.dmp-toples .toples { height: 100%; width: auto; max-width: 100%; max-height: 34rem; }
+.dmp-babdaftar { grid-area: bab; display: grid; }
+.dmp-bab { grid-area: 1 / 1; opacity: 0; transform: translateY(12px); transition: opacity 0.45s var(--ease-keluar), transform 0.45s var(--ease-keluar); pointer-events: none; }
+.dmp-bab--aktif { opacity: 1; transform: none; pointer-events: auto; }
+.dmp-bab__urut { margin: 0; color: var(--redup); }
+.dmp-bab h2 { font-size: clamp(1.4rem, 4vw, 2rem); }
+.dmp-angka { margin: 0.15rem 0; font: 900 clamp(3.25rem, 13vw, 7rem)/0.85 var(--f-tampil); font-stretch: 62%; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.015em; }
+.dmp-bab__satuan { margin: 0; font-weight: 800; font-size: 1.125rem; }
+.dmp-bab__isi { margin: 0.3rem 0 0; max-width: 42ch; font-size: clamp(0.95rem, 2.2vw, 1.125rem); }
+.dmp-rel { grid-area: rel; display: flex; list-style: none; margin: 0; padding: 0; border: 2px solid var(--tinta); max-width: none; }
+.dmp-rel li { flex: 1; max-width: none; padding: 0.35rem 0.25rem; border-left: 2px solid var(--tinta); font: 700 0.8125rem/1.2 var(--f-nota); text-align: center; white-space: nowrap; overflow: hidden; transition: background-color 0.3s, color 0.3s; }
+.dmp-rel li:first-child { border-left: 0; }
+.dmp-rel li.dmp-rel--aktif { background: var(--tinta); color: var(--alas); }
+.dmp-cerita .tunas { transform: scale(0.15); opacity: 0; transition: transform 0.55s var(--ease-keluar), opacity 0.35s; }
+.dmp-cerita .tunas--tampak { transform: none; opacity: 1; }
+.dmp-cerita .toples--gratis .tunas--tampak { opacity: 0.28; }
+.dmp-cerita .toples--gratis .tunas--gratis.tunas--tampak { opacity: 1; }
+.toples--gratis .tunas--gratis .tunas__daun { fill: var(--merah); }
+.dmp-cerita--statis .dmp-panggung { position: static; height: auto; grid-template-areas: 'toples' 'bab'; }
+.dmp-cerita--statis .dmp-toples .toples { height: auto; width: min(100%, 24rem); }
+.dmp-cerita--statis .dmp-babdaftar { display: block; }
+.dmp-cerita--statis .dmp-bab { opacity: 1; transform: none; pointer-events: auto; margin-bottom: 2rem; }
+.dmp-cerita--statis .dmp-rel { display: none; }
+@media (min-width: 62rem) {
+  .dmp-panggung { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); grid-template-rows: minmax(0, 1fr) auto; grid-template-areas: 'toples bab' 'rel rel'; column-gap: 4rem; padding-block: 1.25rem; }
+  .dmp-babdaftar { align-self: center; }
+  .dmp-angka { font-size: clamp(5rem, 10vw, 9rem); }
+  .dmp-cerita--statis .dmp-panggung { grid-template-areas: 'toples bab'; }
+}
+
+/* ---------- Hidangan teratas ---------- */
+.dmp-menu { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; max-width: none; }
+.dmp-menu li { max-width: none; }
+.dmp-menu__baris { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; align-items: center; padding-top: 1rem; border-top: 2px solid var(--tinta); }
+.dmp-menu__baris--utama { grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); }
+.dmp-menu__foto { transform: rotate(-1.2deg); }
+.dmp-menu__foto .foto { aspect-ratio: 4 / 3; }
+.dmp-menu__isi h3 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+.dmp-menu__baris--utama h3 { font-size: clamp(2rem, 5vw, 3.5rem); }
+.dmp-menu__isi .nota { margin: 0.1rem 0 0.5rem; color: var(--redup); }
+.dmp-menu__bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.75rem; align-items: center; }
+.dmp-menu__bar span { display: block; height: 1.1rem; background: var(--tinta); transform-origin: left; }
+.dmp-menu__baris:first-child .dmp-menu__bar span { background: var(--merah); }
+
+/* ---------- Grafik harian ---------- */
+.dmp-grafik { display: grid; gap: 0.4rem; }
+.dmp-kolom { list-style: none; margin: 0; padding: 1.75rem 0 0; display: flex; align-items: flex-end; gap: clamp(0.15rem, 1vw, 0.6rem); height: clamp(12rem, 32vw, 18rem); border-bottom: 2px solid var(--tinta); max-width: none; }
+.dmp-kolom li { flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 0.2rem; max-width: none; }
+.dmp-kolom__nilai { font-size: 0.8125rem; font-weight: 700; }
+.dmp-kolom__bar { display: block; width: 100%; height: calc(var(--tinggi) * 0.86); background: var(--tinta); transform-origin: bottom; }
+.dmp-kolom--kini .dmp-kolom__bar { background: var(--merah); }
+.dmp-kolom__tgl { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(0.15rem, 1vw, 0.6rem); max-width: none; }
+.dmp-kolom__tgl li { flex: 1; min-width: 0; text-align: center; font-size: 0.75rem; white-space: nowrap; max-width: none; }
+@media (max-width: 47.99rem) { .dmp-kolom__tgl li:not(:first-child):not(:nth-child(5n + 1)) { visibility: hidden; } .dmp-kolom__nilai { font-size: 0.6875rem; } }
+
+/* ---------- SDG ---------- */
+.dmp-sdg__kepala { display: grid; gap: 0.75rem; margin-bottom: 2rem; }
+.dmp-sdg__kepala h2 { font-size: clamp(2rem, 5vw, 3.25rem); max-width: 18ch; }
+.dmp-sdg__kepala p { margin: 0; font-size: 1.125rem; }
+.dmp-sdg__pita { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding-block: clamp(2rem, 5vw, 3.5rem); border-top: 2px solid var(--tinta); }
+.dmp-sdg__pita:last-child { border-bottom: 2px solid var(--tinta); }
+.dmp-sdg__tanda { display: grid; align-content: start; gap: 0.35rem; }
+.dmp-sdg__tanda .nota { color: var(--redup); }
+.dmp-sdg__nomor { margin: 0; font: 900 clamp(6rem, 24vw, 12rem)/0.8 var(--f-tampil); font-stretch: 62%; color: var(--merah-teks); }
+.dmp-sdg__tanda h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); max-width: 20ch; margin-top: 0.5rem; }
+.dmp-sdg__isi { display: grid; gap: 1rem; align-content: start; }
+.dmp-sdg__isi p { margin: 0; }
+.dmp-sdg__angka { font: 900 clamp(2.75rem, 8vw, 5.5rem)/0.9 var(--f-tampil); font-stretch: 62%; word-spacing: 0.14em; }
+.dmp-sdg__belum { font-size: 0.9375rem; border-top: 1px dashed var(--tinta); padding-top: 0.75rem; color: var(--redup); }
+.dmp-sdg__belum strong { color: var(--tinta); }
+.dmp-kantin { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; max-width: none; }
+.dmp-kantin li { max-width: none; display: grid; grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr) 7.5rem; gap: 0.75rem; align-items: center; }
+.dmp-kantin .angka { text-align: right; font-weight: 700; }
+.dmp-kantin__bar i { display: block; height: 1rem; background: var(--tinta); }
+.dmp-pecah { display: grid; gap: 0.4rem; }
+.dmp-pecah .nota { margin: 0; color: var(--redup); }
+.dmp-pecah__bar { display: flex; height: 1.5rem; border: 2px solid var(--tinta); }
+.dmp-pecah__bar span { display: grid; align-items: center; min-width: 0; overflow: hidden; padding: 0 0.4rem; font: 700 0.8125rem var(--f-nota); white-space: nowrap; }
+.dmp-pecah__bar span:first-child { background: var(--merah); color: var(--di-merah); }
+.dmp-pecah__bar--tebal { height: 2.6rem; }
+.dmp-pecah__bar--tebal span:first-child { background: var(--tinta); color: var(--alas); }
+@media (min-width: 62rem) {
+  .dmp-sdg__pita { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 4rem; }
+  .dmp-sdg__pita:nth-child(3) { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .dmp-sdg__pita:nth-child(3) .dmp-sdg__tanda { order: 2; }
+}
+@media (max-width: 40rem) {
+  .dmp-kantin li { grid-template-columns: minmax(0, 1fr) auto; }
+  .dmp-kantin__bar { grid-column: 1 / -1; order: 3; }
+}
+
+/* ---------- Cara menghitung ---------- */
+.dmp-hitung dl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.25rem 2rem; margin: 0; }
+.dmp-hitung dt { font-weight: 800; margin-top: 0.9rem; }
+.dmp-hitung dd { margin: 0; max-width: 60ch; }
+@media (min-width: 48rem) { .dmp-hitung dl { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); } .dmp-hitung dt { margin-top: 0; } .dmp-hitung dd { padding-bottom: 0.9rem; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .dmp-kolom__bar { animation: isi-bar-tegak 0.8s var(--ease-keluar) backwards; }
+  @keyframes isi-bar-tegak { from { transform: scaleY(0); } }
+}
+
+/* ---------- Kepala dengan kolase foto ---------- */
+.dmp-kepala { grid-template-columns: minmax(0, 1fr); gap: 2rem; align-items: center; }
+.dmp-kepala__teks { display: grid; gap: 1.25rem; }
+.dmp-kolase { position: relative; margin: 0; height: clamp(15rem, 62vw, 28rem); }
+.dmp-kolase .nota { position: absolute; left: 0; bottom: -1.9rem; margin: 0; max-width: 40ch; color: var(--redup); }
+.dmp-kolase__foto { position: absolute; }
+.dmp-kolase__foto .foto { aspect-ratio: 4 / 3; }
+.dmp-kolase__foto--0 { left: 0; top: 0; width: 62%; transform: rotate(-3deg); z-index: 1; }
+.dmp-kolase__foto--1 { right: 0; top: 18%; width: 56%; transform: rotate(2.5deg); z-index: 2; }
+.dmp-kolase__foto--2 { left: 14%; bottom: 0; width: 50%; transform: rotate(-1deg); z-index: 3; }
+.dmp-rel li { background: transparent; }
+@media (min-width: 62rem) {
+  .dmp-kepala { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); column-gap: 4rem; }
+  .dmp-kolase { height: 30rem; }
+}
+.dmp-kolase { margin-bottom: 3.5rem; }
+.dmp-kolase .nota { top: calc(100% + 0.75rem); bottom: auto; }

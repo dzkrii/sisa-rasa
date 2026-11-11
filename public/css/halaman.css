@@ -1,0 +1,203 @@
+/* Area yang membawa jam sendiri (data-fase) mengikuti alasnya. */
+body [data-fase] { background-color: var(--alas); color: var(--tinta); }
+.tengah, .hero, .siklus__kepala, .kolam__isi, .penjual, .catatan, .blok, .bantuan__kepala, .dasbor, .cara, .porsi, .jelajah, .tiketku, .donasi__dua, .donasi__buku, .donasi > h1 { padding-inline: max(var(--jarak), calc((100% - var(--lebar)) / 2)); }
+.blok { margin-top: 2.5rem; }
+.blok > h2, .bantuan__aturan > h2 { margin-bottom: 1rem; }
+.sebagai-label { font-weight: 700; }
+.kembali { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; }
+
+/* Kolom tunggal yang boleh menyusut, supaya isi yang lebar tidak melebarkan halaman. */
+.hero, .kolam__isi, .penjual, .catatan, .dasbor, .dasbor__atas, .dasbor__uang, .tiketku, .cara, .donasi__dua, .porsi__utama, .porsi__jadwal, .jelajah__isi, .siklus__kepala { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------- Beranda: pembuka ---------- */
+.hero { display: grid; gap: 2rem; padding-block: clamp(1.75rem, 5vw, 4rem) 0; }
+.hero h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); max-width: 22ch; }
+.hero__ket { margin: 1.25rem 0 1.75rem; font-size: 1.1875rem; }
+.hero__harga { display: grid; align-content: center; justify-items: start; padding-bottom: 1.5rem; min-width: 0; }
+.tumpukan { display: grid; gap: 1.6rem; justify-items: start; }
+.tumpukan__butir { position: relative; }
+.tumpukan__butir:nth-child(odd) { transform: rotate(-1.6deg); }
+.tumpukan__butir:nth-child(even) { transform: rotate(1.2deg) translateX(1.5rem); }
+.tumpukan__butir--kini { transform: rotate(-1deg) translateX(0.5rem) !important; margin-bottom: 1.6rem; }
+.tumpukan__cap { position: absolute; left: 0.2rem; bottom: -1.7rem; }
+.coba { grid-column: 1 / -1; border-top: 2px solid var(--tinta); padding-block: 1.25rem 1.5rem; display: grid; gap: 0.75rem; }
+.coba__judul { margin: 0; font-weight: 700; }
+@media (min-width: 62rem) {
+  .hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); column-gap: 3rem; }
+  .hero__harga { justify-items: end; }
+  .hero__harga .harga--raksasa { --ukuran: clamp(5rem, 10.5vw, 8.5rem); }
+  .hero__harga .harga--besar { --ukuran: clamp(3rem, 6vw, 5rem); }
+  .tumpukan { justify-items: end; }
+  .tumpukan__cap { left: auto; right: 0.2rem; }
+}
+
+/* ---------- Beranda: siklus, empat pita ---------- */
+.siklus { margin-top: 2.5rem; border-block: 2px solid var(--tinta); }
+.siklus__kepala { padding-block: 2.5rem 2rem; display: grid; gap: 1rem; }
+.siklus__kepala p { margin: 0; max-width: 60ch; }
+.garis--lebar { border: 0; }
+.garis--lebar .tahap { padding: clamp(2rem, 6vw, 4rem) max(var(--jarak), calc((100% - var(--lebar)) / 2)); border-top: 2px solid var(--tinta); display: grid; grid-template-columns: 1fr; gap: 0.5rem 3rem; align-items: center; }
+.garis--lebar .tahap h3 { font-size: clamp(2.5rem, 7vw, 4.5rem); }
+.garis--lebar .tahap .harga { --ukuran: clamp(5rem, 19vw, 10rem); margin-block: 0.5rem; }
+.garis--lebar .tahap__ket { font-size: 1.1875rem; }
+.garis--lebar .tahap__cap { top: 1.25rem; right: max(var(--jarak), calc((100% - var(--lebar)) / 2)); }
+@media (min-width: 62rem) {
+  .garis--lebar .tahap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .garis--lebar .tahap > :not(.harga) { grid-column: 2; }
+  .garis--lebar .tahap > .harga { grid-column: 1; grid-row: 1 / span 5; }
+  .garis--lebar .tahap:nth-child(even) > :not(.harga) { grid-column: 1; }
+  .garis--lebar .tahap:nth-child(even) > .harga { grid-column: 2; justify-self: end; }
+  .garis--lebar .tahap:nth-child(3) { padding-block: clamp(3rem, 8vw, 6rem); }
+}
+
+/* ---------- Beranda: kolam, penjual, catatan ---------- */
+.kolam { padding-block: clamp(2.5rem, 7vw, 5rem); }
+.kolam__isi { display: grid; gap: 2rem; align-items: end; }
+.kolam__catatan { display: grid; gap: 1rem; align-content: start; }
+.kolam__catatan p { margin: 0; }
+.kolam__daftar { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.kolam__daftar li { border-top: 1px solid var(--garis); padding-top: 0.5rem; }
+.kolam .harga { margin-block: 0.75rem; }
+@media (min-width: 62rem) { .kolam__isi { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 4rem; } }
+.penjual { margin-top: clamp(3rem, 8vw, 6rem); display: grid; gap: 2rem; align-items: start; }
+.penjual h2 { margin-bottom: 1rem; }
+@media (min-width: 62rem) { .penjual { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; } }
+.tabel-nota caption { text-align: left; padding-bottom: 0.5rem; color: var(--redup); }
+.tabel-nota th, .tabel-nota td { text-align: left; padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--garis); vertical-align: top; }
+.tabel-nota th[scope='col'] { border-bottom: 2px solid var(--tinta); font-weight: 800; }
+.tabel-nota .angka { text-align: right; padding-right: 0; }
+.catatan { margin-top: clamp(3rem, 8vw, 6rem); display: grid; gap: 1.5rem; }
+.catatan__daftar, .pihak { margin: 0; display: grid; gap: 0.25rem 2rem; }
+.catatan__daftar dt, .pihak dt { font: 900 1.6rem/1 var(--f-tampil); font-stretch: 62%; margin-top: 1rem; }
+.catatan__daftar dd, .pihak dd { margin: 0; }
+@media (min-width: 62rem) {
+  .catatan { grid-template-columns: 0.8fr 1.2fr; gap: 2rem 4rem; }
+  .catatan .tombol { justify-self: start; }
+}
+
+/* ---------- Jelajah ---------- */
+.jelajah { padding-block: 1.5rem 0; }
+.jelajah h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+.saring-wadah { margin-block: 1rem; border-block: 2px solid var(--tinta); }
+.saring-wadah > summary { min-height: 2.75rem; display: flex; align-items: center; font: 900 1.5rem/1 var(--f-tampil); font-stretch: 62%; padding-block: 0.6rem; }
+@media (min-width: 62rem) { .saring-wadah > summary { display: none; } }
+.saring { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.25rem 1rem; align-items: end; padding-block: 0.5rem 0.75rem; }
+.saring .isian { margin-bottom: 0.5rem; }
+.saring .tombol { margin-bottom: 0.5rem; }
+.tab { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.tab .tombol { flex: 1; }
+.tab .tombol[aria-selected='true'] { background: var(--tinta); color: var(--alas); }
+.jelajah__peta { height: 62dvh; min-height: 20rem; border: 2px solid var(--tinta); background: var(--kertas); }
+.jelajah__peta--sembunyi, .jelajah__daftar--sembunyi { display: none; }
+.jelajah__catatan { margin-top: 1rem; }
+.jelajah__daftar:empty { display: none; }
+@media (min-width: 62rem) {
+  .tab { display: none; }
+  .jelajah__isi { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  .jelajah__peta { position: sticky; top: 4.5rem; height: calc(100dvh - 6rem); }
+  .jelajah__peta--sembunyi, .jelajah__daftar--sembunyi { display: block; }
+  .jelajah__catatan { grid-column: 1 / -1; }
+}
+.penanda-bungkus { background: none; border: 0; }
+.penanda { display: grid; place-items: center; min-width: 3.25rem; height: 2.75rem; padding: 0 0.5rem; background: #e7d7bb; color: #1b1410; border: 2px solid #1b1410; border-radius: 2px; font: 900 1.3rem/1 var(--f-tampil); font-stretch: 62%; transform: rotate(-2deg); }
+.penanda--bantuan { background: #14110f; color: #e8d5b0; border-color: #14110f; }
+.penanda--pilih { background: #b3150f; color: #f4e9d3; border-color: #b3150f; }
+.penanda--kampus { font-size: 1rem; background: transparent; border-style: dashed; font-stretch: 85%; }
+.popup p { margin: 0.25rem 0; }
+.popup a { font-weight: 700; }
+
+/* ---------- Detail porsi ---------- */
+.porsi { padding-block: 1.25rem 0; }
+.porsi__kepala { margin-block: 0.5rem 1.5rem; display: grid; gap: 0.5rem; }
+.porsi__kantin { margin: 0; font-weight: 700; }
+.porsi__utama { display: grid; gap: 1.5rem; }
+.porsi__sekarang { position: relative; border: 2px solid var(--tinta); padding: 1.25rem var(--jarak) 1.5rem; display: grid; gap: 0.5rem; align-content: start; }
+.porsi__sekarang .nota { margin: 0; }
+.porsi__cap { position: absolute; right: var(--jarak); top: 1rem; }
+.porsi__sekarang .harga--raksasa { --ukuran: clamp(4.5rem, 15vw, 8.5rem); }
+.porsi__pesan { border: 2px solid var(--tinta); padding: 1.25rem var(--jarak); background: var(--kertas); display: grid; gap: 0.75rem; align-content: start; }
+.porsi__pesan > p { margin: 0; }
+.porsi__jadwal { margin-top: clamp(2.5rem, 7vw, 4.5rem); display: grid; gap: 1rem; }
+@media (min-width: 62rem) { .porsi__utama { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } }
+
+/* ---------- Tiket ---------- */
+.tiketku { padding-block: 2rem 0; display: grid; gap: 1rem; }
+.tiketku__daftar { display: grid; gap: 2.25rem; margin-top: 1rem; max-width: 50rem; }
+
+/* ---------- Bantuan ---------- */
+.bantuan__kepala { padding-block: clamp(2.5rem, 7vw, 5rem); display: grid; gap: 1rem; }
+.bantuan__kepala p { margin: 0; font-size: 1.1875rem; }
+.bantuan .nota-baris { margin-top: 0.75rem; }
+.bantuan__aturan { margin-top: 3rem; padding-inline: max(var(--jarak), calc((100% - var(--lebar)) / 2)); }
+.bantuan__aturan ul { padding-left: 1.2rem; }
+.bantuan__aturan li { margin-bottom: 0.6rem; }
+.daftar-nota { padding-left: 1.2rem; }
+.daftar-nota li { margin-bottom: 0.5rem; }
+
+/* ---------- Donasi ---------- */
+.donasi > h1 { padding-block: 2rem 1.5rem; font-size: clamp(2.4rem, 6vw, 4.5rem); max-width: none; }
+.donasi__kolam { padding-block: clamp(2rem, 6vw, 4rem); padding-inline: max(var(--jarak), calc((100% - var(--lebar)) / 2)); }
+.donasi__kolam-isi { display: grid; gap: 0.5rem; }
+.donasi__kolam .harga { margin-block: 0.5rem; }
+.donasi__dua { display: grid; gap: 2.5rem; margin-top: 2.5rem; }
+.donasi__form h2, .donasi__jejak h2 { margin-bottom: 1rem; }
+.donasi__form form { display: grid; }
+.terima { display: grid; gap: 1rem; justify-items: start; }
+.jejak { list-style: none; padding: 0; display: grid; gap: 1rem; }
+.jejak li { border-top: 2px solid var(--tinta); padding-top: 0.5rem; }
+.jejak p { margin: 0.25rem 0; }
+.donasi__buku { margin-top: clamp(3rem, 8vw, 5rem); display: grid; gap: 0.75rem; }
+.buku { list-style: none; margin: 0.5rem 0 0; padding: 0; max-width: 46rem; }
+.buku__baris { display: grid; gap: 0.1rem 1.5rem; padding-block: 0.85rem; border-top: 1px solid var(--garis); }
+.buku__baris p { margin: 0; }
+.buku__baris--bantuan { color: var(--redup); }
+.buku__pesan { font-style: italic; }
+@media (min-width: 40rem) { .buku__baris { grid-template-columns: 10rem 1fr; } }
+@media (min-width: 62rem) { .donasi__dua { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; } }
+
+/* ---------- Dasbor penjual ---------- */
+.dasbor { padding-block: 1.5rem 0; display: grid; gap: clamp(2rem, 6vw, 3.5rem); }
+.dasbor h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+.dasbor h2 { margin-bottom: 1rem; font-size: clamp(2rem, 5vw, 3rem); }
+.dasbor__uang { display: grid; gap: 1rem; align-items: end; border-bottom: 2px solid var(--tinta); padding-bottom: 1.5rem; }
+.dasbor__rinci { display: grid; grid-template-columns: auto auto; gap: 0.25rem 2rem; justify-content: start; margin: 0; }
+.dasbor__rinci dd { margin: 0; font-weight: 700; }
+.dasbor__atas { display: grid; gap: clamp(2rem, 6vw, 3.5rem); }
+.verifikasi { display: grid; gap: 0.5rem; padding: 1.25rem var(--jarak); border: 2px solid var(--tinta); background: var(--kertas); }
+.verifikasi__kode { font: 900 clamp(2.5rem, 10vw, 3.75rem)/1 var(--f-tampil) !important; font-stretch: 62%; text-transform: uppercase; letter-spacing: 0.12em; min-height: 4.5rem; text-align: center; }
+.verifikasi__hasil { display: grid; gap: 0.75rem; justify-items: start; min-height: 2rem; }
+.verifikasi__hasil p { margin: 0; }
+.unggah { display: grid; }
+.unggah__dua { display: grid; gap: 0 1rem; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.unggah__pratinjau { margin-top: 1.5rem; }
+.unggah__pratinjau h3 { margin-bottom: 0.75rem; }
+.dasbor__butir { border: 2px solid var(--tinta); padding: 1rem var(--jarak) 1.25rem; display: grid; gap: 1rem; }
+.dasbor__butir + .dasbor__butir { margin-top: 1.25rem; }
+.dasbor__butir-kepala { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 1.5rem; align-items: start; }
+.dasbor__butir-kepala p { margin: 0.25rem 0 0; }
+.dasbor__pesanan table { font-size: 0.9375rem; }
+.dasbor__pesanan td, .dasbor__pesanan th { overflow-wrap: anywhere; }
+@media (min-width: 62rem) {
+  .dasbor__uang { grid-template-columns: minmax(0, 1fr) auto; }
+  .dasbor__atas { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+}
+
+/* ---------- Cara kerja ---------- */
+.cara { padding-block: 2rem 0; display: grid; gap: clamp(2.5rem, 7vw, 4.5rem); max-width: none; }
+.cara > * { max-width: 60rem; }
+.cara__kepala { display: grid; gap: 1.25rem; }
+.cara__kepala p { font-size: 1.1875rem; margin: 0; }
+.cara h2 { margin-bottom: 1rem; }
+.aturan { padding-left: 1.2rem; }
+.aturan li { margin-bottom: 0.6rem; }
+@media (max-width: 39.99rem) {
+  .cara .tabel-nota thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cara .tabel-nota tr { display: block; border-bottom: 2px solid var(--tinta); padding-block: 0.5rem; }
+  .cara .tabel-nota th, .cara .tabel-nota td { display: block; border: 0; padding: 0.15rem 0; }
+  .cara .tabel-nota th[scope='row'] { font: 900 1.6rem/1 var(--f-tampil); font-stretch: 62%; }
+}
+
+/* ---------- Riwayat tiket ---------- */
+.riwayat { max-width: 50rem; margin-top: 2rem; border-top: 2px solid var(--tinta); }
+.riwayat summary { min-height: 2.75rem; display: flex; align-items: center; font: 900 1.75rem/1 var(--f-tampil); font-stretch: 62%; padding-block: 0.75rem; }
+.riwayat table { margin-bottom: 1rem; }

@@ -1,0 +1,29 @@
+{
+  "name": "sisa-rasa",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sisa Rasa: makanan sisa kantin kampus menjadi pendapatan, makan murah, atau makan gratis. Semua data adalah data demo.",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server/server.js",
+    "dev": "node --watch --env-file-if-exists=.env src/server/server.js",
+    "db:reset": "node --env-file-if-exists=.env scripts/db-reset.js",
+    "test": "node --test",
+    "vendor": "node scripts/vendor.js"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
+    "@fontsource/courier-prime": "^5.3.0",
+    "express": "^5.3.0",
+    "gsap": "^3.15.1",
+    "leaflet": "^1.9.4",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.65.0"
+  }
+}

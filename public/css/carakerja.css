@@ -1,0 +1,54 @@
+/* ---------- Cara kerja ---------- */
+.ck { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(3rem, 8vw, 5.5rem); padding-top: 2rem; }
+.ck-kepala, .ck-bagian, .ck-penutup { padding-inline: max(var(--jarak), calc((100% - var(--lebar)) / 2)); }
+.ck-kepala { display: grid; gap: 1.25rem; }
+.ck-kepala h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); }
+.ck-kepala > p { margin: 0; font-size: 1.1875rem; max-width: 52ch; }
+.ck-isi { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin-top: 0.5rem; }
+.ck-isi a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; }
+.ck-bagian { display: grid; gap: 1rem; align-content: start; }
+.ck-bagian > p { margin: 0; max-width: 62ch; }
+.ck-bagian h2 { font-size: clamp(2rem, 5vw, 3.25rem); }
+.ck-bagian > .tombol { justify-self: start; }
+.ck-bagian .garis { margin-top: 0.5rem; }
+
+/* contoh hitungan */
+.ck-hitung { margin-top: 0.5rem; }
+.ck-hitung th, .ck-hitung td { padding-right: 1rem; }
+@media (max-width: 47.99rem) {
+  .ck-hitung thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .ck-hitung tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.1rem 1rem; border-bottom: 2px solid var(--tinta); padding-block: 0.7rem; }
+  .ck-hitung th[scope='row'] { grid-column: 1 / -1; font: 900 1.5rem/1 var(--f-tampil); font-stretch: 62%; border: 0; }
+  .ck-hitung td { border: 0; padding: 0.1rem 0; text-align: left; }
+  .ck-hitung td::before { content: attr(data-l) ': '; color: var(--redup); }
+}
+
+/* aturan dan lima pihak */
+.ck-aturan { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; border-top: 2px solid var(--tinta); max-width: none; }
+.ck-aturan li { max-width: none; padding: 0.9rem 0; border-bottom: 1px solid var(--garis); }
+.ck-pihak { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; border-top: 2px solid var(--tinta); }
+.ck-pihak > div { padding: 1rem 0; border-bottom: 1px solid var(--garis); display: grid; gap: 0.25rem 2rem; }
+.ck-pihak dt { font: 900 clamp(1.6rem, 4vw, 2.25rem)/1 var(--f-tampil); font-stretch: 62%; word-spacing: 0.14em; }
+.ck-pihak dd { margin: 0; max-width: 56ch; }
+@media (min-width: 48rem) {
+  .ck-aturan { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
+  .ck-pihak > div { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: baseline; }
+}
+
+/* FAQ bergaya accordion */
+.ck-faq { border-top: 2px solid var(--tinta); max-width: none; }
+.ck-faq details { border-bottom: 2px solid var(--tinta); }
+.ck-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; min-height: 3.5rem; padding: 1.1rem 0.25rem; list-style: none; font: 900 clamp(1.4rem, 3.4vw, 2rem)/1.05 var(--f-tampil); font-stretch: 62%; word-spacing: 0.14em; transition: background-color 0.15s, padding 0.25s var(--ease-keluar); }
+.ck-faq summary::-webkit-details-marker { display: none; }
+.ck-faq summary:hover { background: var(--kertas); padding-inline: 0.9rem; }
+.ck-faq summary::after { content: ''; flex: none; width: 1.3rem; height: 1.3rem; background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat, linear-gradient(currentColor, currentColor) center / 3px 100% no-repeat; transition: transform 0.3s var(--ease-keluar); }
+.ck-faq details[open] summary::after { transform: rotate(45deg); }
+.ck-faq__isi { padding: 0.25rem 0.25rem 1.5rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ck-faq details[open] .ck-faq__isi { animation: faq-buka 0.35s var(--ease-keluar); }
+  @keyframes faq-buka { from { opacity: 0; transform: translateY(-6px); } }
+}
+
+.ck-penutup { display: grid; gap: 1.5rem; }
+.ck-penutup h2 { font-size: clamp(2.5rem, 7vw, 4.5rem); max-width: 14ch; }

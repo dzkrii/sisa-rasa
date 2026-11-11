@@ -1,0 +1,65 @@
+/* ---------- Dampak ---------- */
+.dampak, .admin { padding-inline: max(var(--jarak), calc((100% - var(--lebar)) / 2)); padding-block: 2rem 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2.5rem, 7vw, 4.5rem); }
+.dampak__kepala { display: grid; gap: 1rem; }
+.dampak__kepala h1, .admin h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); max-width: 18ch; }
+.dampak__kepala p, .admin__ket { margin: 0; font-size: 1.1875rem; }
+.dampak__utama { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; align-items: center; }
+.dampak__toples { margin: 0; display: grid; gap: 0.75rem; justify-items: center; }
+.dampak__toples figcaption { max-width: 34rem; }
+.toples { width: min(100%, 26rem); height: auto; overflow: visible; }
+.toples__badan, .toples__leher { fill: color-mix(in srgb, var(--kertas) 55%, transparent); stroke: var(--tinta); stroke-width: 5; }
+.toples__tutup { fill: var(--merah); stroke: var(--tinta); stroke-width: 5; }
+.toples__tanah { fill: var(--tinta); }
+.toples__kilap { stroke: var(--kertas); stroke-width: 7; stroke-linecap: round; opacity: 0.7; fill: none; }
+.tunas { transform-box: fill-box; transform-origin: 50% 100%; }
+.tunas__batang { fill: none; stroke: var(--tinta); stroke-width: 3.5; stroke-linecap: round; }
+.tunas__daun { fill: var(--kertas); stroke: var(--tinta); stroke-width: 2.5; stroke-linejoin: round; }
+.tunas__daun--baru { fill: var(--merah); }
+.dampak__angka { display: grid; gap: 0.75rem; align-content: center; }
+.dampak__angka .nota { margin: 0; }
+.dampak__baris { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+.dampak__baris li { border-top: 2px solid var(--tinta); padding-top: 0.6rem; font-size: 1.125rem; }
+.dampak__baris strong { font: 900 1.75rem/1 var(--f-tampil); font-stretch: 62%; word-spacing: 0.14em; }
+.dampak h2, .admin h2 { margin-bottom: 1rem; font-size: clamp(2rem, 5vw, 3rem); }
+.dampak__catatan ul { padding-left: 1.2rem; }
+.dampak__catatan li { margin-bottom: 0.6rem; }
+.hari-bar { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; max-width: 46rem; }
+.hari-bar__baris { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 5.5rem; gap: 0.75rem; align-items: center; min-height: 1.75rem; }
+.hari-bar__batang { display: block; height: 1.1rem; width: var(--lebar); background: var(--tinta); border-radius: 1px; transform-origin: left; }
+.hari-bar__baris--kini .hari-bar__batang { background: var(--merah); }
+.hari-bar__nilai { text-align: right; font-weight: 700; }
+@media (min-width: 62rem) {
+  .dampak__utama { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 4rem; }
+  .dampak__angka .harga--raksasa { --ukuran: clamp(5rem, 11vw, 9rem); }
+}
+.hari-bar__tgl { white-space: nowrap; font-size: 0.875rem; }
+@media (max-width: 30rem) { .hari-bar__baris { grid-template-columns: 6rem minmax(0, 1fr) 4.5rem; gap: 0.5rem; } }
+
+/* ---------- Admin ---------- */
+.admin__dua { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 3.5rem); }
+@media (min-width: 62rem) { .admin__dua { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 4rem; } }
+.admin__ket { max-width: 60ch; }
+.admin__kolam { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1.5rem; margin: 0 0 1rem; }
+.admin__kolam dd { margin: 0; text-align: right; font-weight: 700; }
+.admin__kolam .admin__saldo { font: 900 2.5rem/1 var(--f-tampil); font-stretch: 62%; }
+.admin__daftar { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.admin__daftar li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 1rem; padding: 0.9rem var(--jarak); background: var(--kertas); border: 2px solid var(--tinta); max-width: none; }
+.admin__daftar p { margin: 0.15rem 0 0; }
+.admin .tabel-nota { font-size: 0.9375rem; }
+@media (max-width: 47.99rem) {
+  .admin .tabel-nota thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .admin .tabel-nota tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.1rem 1rem; border-bottom: 2px solid var(--tinta); padding-block: 0.6rem; }
+  .admin .tabel-nota th[scope='row'] { grid-column: 1 / -1; font: 900 1.5rem/1 var(--f-tampil); font-stretch: 62%; border: 0; }
+  .admin .tabel-nota td { border: 0; padding: 0.1rem 0; text-align: left; }
+  .admin .tabel-nota td::before { content: attr(data-l) ' '; color: var(--redup); }
+}
+
+/* ---------- Gerak: mencoret harga lama dan masuk halaman ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .harga--coret::after { transform-origin: left center; animation: coret 0.55s var(--ease-keluar) 0.2s backwards; }
+  @keyframes coret { from { transform: rotate(-3.5deg) scaleX(0); } }
+  #isi.masuk > * { animation: masuk 0.45s var(--ease-keluar) backwards; }
+  @keyframes masuk { from { opacity: 0; transform: translateY(12px); } }
+  .hari-bar__batang { animation: isi-bar 0.7s var(--ease-keluar) backwards; }
+  @keyframes isi-bar { from { transform: scaleX(0); } }
+}

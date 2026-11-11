@@ -1,0 +1,23 @@
+# Dependensi dan rahasia
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Alat bantu AI dan desain (skill, pengaturan, tangkapan layar tinjauan)
+.claude/
+CLAUDE.md
+.impeccable/
+
+# Bahan referensi pribadi: gambar situs pihak lain yang sengaja dipakai sebagai anti-referensi
+referensi/
+
+# Log, sampah sistem, dan editor
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+coverage/
+*.tmp

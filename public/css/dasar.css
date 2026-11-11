@@ -1,0 +1,94 @@
+/* Huruf: Archivo (angka dan judul, lebar sempit), Hanken Grotesk (isi), Courier Prime (baris nota). */
+@font-face { font-family: 'Archivo'; src: url('/fonts/archivo.woff2') format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: 'Hanken Grotesk'; src: url('/fonts/hanken-grotesk.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: 'Courier Prime'; src: url('/fonts/courier-prime-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Courier Prime'; src: url('/fonts/courier-prime-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+/* Warna: tiga alas (jam), satu tinta, satu merah kresek. Semua pasangan teks sudah dihitung minimal 4.5:1. */
+:root,
+[data-fase='siang'] {
+  --alas: #d9be92;
+  --kertas: #e7d7bb;
+  --tinta: #1b1410;
+  --redup: #4b3b2b;
+  --merah: #b3150f;
+  --merah-teks: #9e120d;
+  --di-merah: #f4e9d3;
+  --garis: color-mix(in srgb, var(--tinta) 30%, transparent);
+}
+[data-fase='sore'] {
+  --alas: #c99a62;
+  --kertas: #dcc4a0;
+  --redup: #3f2f20;
+  --merah-teks: #6e0a06;
+}
+[data-fase='malam'] {
+  --alas: #14110f;
+  --kertas: #211b17;
+  --tinta: #e8d5b0;
+  --redup: #bba783;
+  --merah: #ff5a47;
+  --merah-teks: #ff5a47;
+  --di-merah: #14110f;
+}
+
+:root {
+  --f-tampil: 'Archivo', 'Arial Narrow', sans-serif;
+  --f-isi: 'Hanken Grotesk', system-ui, sans-serif;
+  --f-nota: 'Courier Prime', 'Courier New', monospace;
+  --r-kecil: 2px;
+  --r-sedang: 4px;
+  --jarak: clamp(1rem, 4vw, 1.5rem);
+  --lebar: 76rem;
+  --ease-keluar: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+[data-fase='malam'] { color-scheme: dark; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 4.5rem; }
+body {
+  margin: 0;
+  background: var(--alas);
+  color: var(--tinta);
+  font: 400 1.0625rem/1.55 var(--f-isi);
+  transition: background-color 0.6s var(--ease-keluar), color 0.6s var(--ease-keluar);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+#isi { flex: 1; outline: none; }
+img, svg { max-width: 100%; }
+p, dd { max-width: 68ch; }
+li { max-width: 68ch; }
+.garis li, .tahap, .nota-baris, .tabel-nota li { max-width: none; }
+p { margin: 0 0 1em; }
+h1, h2, h3 { margin: 0; font-family: var(--f-tampil); font-weight: 900; font-stretch: 62%; line-height: 0.95; text-wrap: balance; letter-spacing: -0.01em; }
+h1, h2, h3, .merek, .tombol, .cap, .harga, .tiket__kode, .stepper output { word-spacing: 0.14em; }
+h1 { font-size: clamp(2.75rem, 9vw, 6rem); }
+h2 { font-size: clamp(2.25rem, 6.5vw, 4.25rem); }
+h3 { font-size: clamp(1.5rem, 3.4vw, 2rem); line-height: 1; }
+a { color: inherit; text-decoration-thickness: 0.09em; text-underline-offset: 0.2em; }
+::selection { background: var(--merah); color: var(--di-merah); }
+:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; border-radius: 2px; }
+/* Sasaran fokus program (judul halaman setelah pindah halaman) bukan kontrol, jadi tanpa cincin. */
+[tabindex='-1']:focus { outline: none; }
+input, textarea, select, button { font: inherit; color: inherit; caret-color: var(--merah); }
+button, a[href], summary, select, label[for], [role='button'], [role='tab'], input[type='checkbox'], input[type='radio'], input[type='range'] { cursor: pointer; }
+:disabled, [aria-disabled='true'] { cursor: not-allowed; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.angka, td.angka, .nota { font-variant-numeric: tabular-nums lining-nums; }
+.nota { font-family: var(--f-nota); font-size: 0.9375rem; line-height: 1.45; }
+* { scrollbar-color: var(--tinta) var(--alas); }
+
+.sr-saja { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.lompat { position: absolute; left: 0.5rem; top: -4rem; z-index: 100; background: var(--tinta); color: var(--alas); padding: 0.75rem 1rem; }
+.lompat:focus { top: 0.5rem; }
+.noscript { padding: 2rem var(--jarak); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Atribut hidden harus menang atas aturan display komponen mana pun. */
+[hidden] { display: none !important; }

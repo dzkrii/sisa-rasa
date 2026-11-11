@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id" data-fase="siang">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sisa Rasa</title>
+  <meta name="description" content="Makanan sisa kantin kampus turun harga seiring jam, lalu menjadi makan gratis bagi mahasiswa yang membutuhkan. Sisa Rasa, karya untuk INVOFEST 2026.">
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/dasar.css">
+  <link rel="stylesheet" href="/css/komponen.css">
+  <link rel="stylesheet" href="/css/halaman.css">
+  <link rel="stylesheet" href="/css/dampak.css">
+  <link rel="stylesheet" href="/css/beranda.css">
+  <link rel="stylesheet" href="/css/dampak2.css">
+  <link rel="stylesheet" href="/css/carakerja.css">
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+<!--
+THESIS: Sisa Rasa memperlihatkan satu porsi yang harganya dicoret empat kali lalu menjadi bantuan, dengan cap karet sebagai bahasa. Menolak toko makanan hijau krem berkartu seragam.
+OWN-WORLD: alas kertas nasi (siang, sore) yang berbalik menjadi kresek hitam di malam hari; tinta tua; satu aksen merah kresek hanya sebagai bidang; Archivo sempit tebal untuk angka, Hanken Grotesk untuk isi, Courier Prime untuk baris nota; cap miring dan meleset.
+STORY: juri paham dalam satu layar bahwa harga porsi turun per jam lalu gratis bagi penerima, masuk sebagai berbagai peran, dan mengatur jam untuk melihat harga bergerak.
+FIRST VIEWPORT: kiri judul pendek dan satu kalimat penjelasan dengan tombol Cari porsi sekarang; kanan foto hidangan nyata dengan label harga yang dicoret dan cap merah di harga yang berlaku.
+FORM: Bungkus, nomor 6 dari 7, kunci 24cf4c70.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+  <a class="lompat" href="#isi">Lompat ke isi</a>
+
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <filter id="tinta-meleber" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="bising"/>
+      <feDisplacementMap in="SourceGraphic" in2="bising" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <header id="atas" class="atas"></header>
+  <main id="isi" tabindex="-1"></main>
+  <footer id="kaki" class="kaki"></footer>
+  <div id="siaran" class="sr-saja" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">Sisa Rasa butuh JavaScript untuk menghitung harga per jam dan menampilkan peta.</p></noscript>
+</body>
+</html>
